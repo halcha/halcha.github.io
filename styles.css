@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
+
+
+:root {
+  --font-primary: "Montserrat", sans-serif;
+  --text-base-size: 20px;
+  --font-heading-color: #fff;
+  --font-heading-color-inverted: #7e7e7e;
+  --font-secondary-color: #b6b6b6;
+  --font-link-color: #59a2f6;
+  --font-linkedin-link-color: #0a64c0;
+  --margin-bottom: 20px;
+  --fade-b-to-w : linear-gradient(to bottom, rgba(6,6,6,0), rgba(6,6,6, 1));
+  --fade-center : radial-gradient(#0f0f0f, rgba(6,6,6,.5));
+  --background : #0f0f0f;
+  --max-box-width: 800px;
+  --max-title-width: 900px;
+}
+
+html {
+  font-size: var(--text-base-size);
+}
+
+body {
+  background: var(--background);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  overflow-x: hidden
+}
+/* typography */
+h1, h2, p, li, nav a{
+  color: var(--font-heading-color);
+  text-decoration-line: none;
+  text-decoration-style: none;
+  font-size: var(--text-base-size);
+  font-family: var(--font-primary)
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0rem 0 5rem;
+  font-weight: 600;
+  background: var(--background);
+  max-width: var(--max-title-width);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  margin: .5rem 0;
+  background: var(--background);
+  line-height: 1.5rem;
+  max-width: var(--max-box-width);
+}
+
+a{
+  text-decoration: none;
+  color: var(--font-link-color);
+  position: relative;
+}
+
+#linkedin {
+  color: var(--font-linkedin-link-color);
+}
+
+
+
+/* animated underline from https://www.cssportal.com/blog/css-animated-underline-links/ */
+
+a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid var(--font-link-color);
+  transition: 0.4s;
+}
+
+a:hover:after {
+  width: 100%;
+}
+
+#linkedin:after {
+  border-color: var(--font-linkedin-link-color);
+}
+
+nav a:after {
+  border-color: var(--font-heading-color);
+}
+
+.mobile-menu a:after {
+  border-color: var(--font-heading-color-inverted);
+}
+button p, .no-bg, .work-card p {
+  background: none;
+}
+
+ {
+  b
+}
+
+/* section rules */
+
+section {
+  margin: 0 10rem;
+  min-width: 350px;
+}
+
+
+/* regular classList */
+/* navigation classes */
+nav {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  padding-bottom: 1em;
+  background-image: var(--fade-b-to-w);
+  z-index: 2;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  width: 60vw;
+  padding: 0;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+}
+
+nav li:nth-child(2) {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-image: url(./assets/sh-logo-400x400.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+/* nav li:nth-child(3) > a {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  position: relative
+} */
+
+/* combined as these are in same position*/
+.mobile-nav {
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 1em;
+  background-image: var(--fade-b-to-w);
+  z-index: 2;
+}
+/*needs to be displayed after myButton toggle*/
+.mobile-menu-container > .mobile-nav {
+  display: flex;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  background: none
+}
+
+.mobile-nav button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none
+}
+
+.mobile-nav button > * {
+  margin: 0 .5em;
+}
+
+.mobile-nav div{
+  height: 50px;
+  width: 50px;
+  background-image: url(./assets/sh-logo-400x400.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mobile-menu-container > .mobile-nav div {
+  background-image: url(./assets/sh-close-thin.svg)
+}
+
+.mobile-menu-container {
+  display: none;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  animation: toptobot .75s cubic-bezier(0.2,0,0.2,1)
+}
+
+.mobile-menu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+.mobile-menu li {
+  text-align: center;
+  margin: 3em 0;
+}
+
+.mobile-menu, .mobile-menu-container > .mobile-nav {
+  opacity: 0;
+  animation: appear .75s cubic-bezier(0.2,0,0.2,1) .5s forwards
+}
+.mobile-menu a, .mobile-menu-container > .mobile-nav p {
+  color: var(--font-heading-color-inverted);
+}
+
+.mobile-menu-container > .mobile-nav button {
+  position: absolute;
+  bottom: 0;
+}
+button {
+cursor: pointer;
+}
+
+#dropdown-flex {
+  z-index: 2;
+}
+
+/* landing section */
+
+#landing {
+  height: auto;
+  min-height: 100vh;
+}
+
+article {
+  padding: 10rem 0 0;
+}
+
+/* works section */
+
+.work-card {
+  margin: 5rem 0;
+  width: auto;
+  height: auto;
+  min-height: 300px;
+  padding-bottom: 5rem;
+  border-radius: 2rem;
+  border-style: solid;
+  border-color: white;
+  border-width: .25rem;
+  position: relative;
+}
+
+.work-card button {
+  background: var(--background);
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 2rem;
+  border-style: solid;
+  border-color: white;
+  border-width: .25rem;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.work-card button:hover {
+  cursor:default;
+  background-color: white;
+  color: var(--background);
+  transition: 0.4s;
+}
+
+.work-card h2 {
+  position: absolute;
+  right: 2.5rem;
+  top: .5rem;
+  text-align: right;
+
+}
+
+.work-card p {
+  position: absolute;
+  right: 2.5rem;
+  top: 5rem;
+  text-align: right;
+  max-width: 500px;
+}
+
+.work-card figure {
+  height: 225px;
+  width: 225px;
+  position: relative;
+  margin-top: 2.5rem;
+  margin-left: 4rem;
+}
+
+.work-card img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%)
+}
+
+/* .work-card img {
+  position: absolute;
+  top: 2rem;
+  left: 2.5rem;
+  height: 225px;
+}
+
+.work-card:nth-of-type(4) img {
+  padding-top: 2rem;
+  width: 225px;
+} */
+
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width : 1400px) {
+
+  .work-card {
+    min-height: 450px;
+    padding-bottom: 10rem;
+  }
+
+  .work-card h2 {
+    top: 13rem;
+    right: 0;
+    left: 2.5rem;
+    text-align: left;
+    padding-right: 2.5rem;
+  }
+
+  .work-card p {
+      top: 20rem;
+      left: 2.5rem;
+      max-width: 400px;
+      text-align: left;
+    }
+
+
+.mobile-nav {
+  display: flex;
+}
+
+nav {
+  display: none;
+}
+
+/* javascript classList */
+
+.show {
+  display: flex;
+}
+
+@media(max-width : 1000px) {
+
+/* .work-card p {
+    top: 14rem;
+    right: 0;
+    left: 2.5rem;
+    text-align: left;
+    max-width: 450px;
+
+  } */
+
+  .work-card {
+    min-height: 500px;
+  }
+}
+
+
+}
+
+@media (max-width : 850px) {
+
+  section {
+    margin: 0 7rem;
+  }
+
+  h1, p {
+    text-align: center;
+  }
+
+  .work-card figure {
+    margin: 2rem auto;
+    display: block
+  }
+
+  .work-card h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    position: static;
+    display: block;
+    margin: 2.5rem 0;
+    padding: 0;
+  }
+
+  .work-card p {
+    text-align: center;
+  }
+}
+
+@media (max-width : 700px) {
+   section {
+    display: block;
+    margin: 0 auto;
+    width: 350px;
+  }
+
+  /* article {
+    padding: 4rem 0 0;
+  } */
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+
+}
+
+/* @keyframes */
+
+@keyframes toptobot {
+  0% {top: -100vh}
+  100% {top: 0}
+}
+
+@keyframes appear {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}

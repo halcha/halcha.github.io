@@ -248,18 +248,17 @@ cursor: pointer;
 /* landing section */
 
 #landing {
-  height: auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 16.5rem);
 }
 
-article {
-  padding: 10rem 0 0;
+#landing > article {
+  max-width: 55rem;
+  margin: 10rem auto;
 }
 
 /* works section */
 
 .work-card {
-  margin: 5rem 0;
   width: auto;
   height: auto;
   min-height: 300px;
@@ -269,6 +268,8 @@ article {
   border-color: white;
   border-width: .25rem;
   position: relative;
+  max-width: 55rem;
+  margin: 5rem auto;
 }
 
 .work-card button {

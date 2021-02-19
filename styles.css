@@ -40,9 +40,10 @@ h1 {
   font-size: 3rem;
   margin: 0rem 0 5rem;
   font-weight: 600;
-  background: var(--background);
+  /* background: var(--background); */
   max-width: var(--max-title-width);
   text-transform: uppercase;
+  color: rgba(255,255,255,.6);
 }
 
 h2 {

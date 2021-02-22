@@ -43,7 +43,7 @@ h1 {
   /* background: var(--background); */
   max-width: var(--max-title-width);
   text-transform: uppercase;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255);
 }
 
 h2 {
